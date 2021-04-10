@@ -1,21 +1,13 @@
 import java.util.*;
 class ContainVirus {
     private class Region {
-        // Using Set<Integer> instead of List<int[]> (int[] -> row and col pair),
-        // as need to de-dupe the elements.
-        // If N rows and M cols.
-        // Total elements = NxM.
-        // Given row and col calculate X as: X = row * M + col.
-        // Given X calculate row and col as: row = X / M and col = X % M.
 
-        // Infected nodes represented by 1.
         Set<Integer> infected = new HashSet<>();
 
-        // Uninfected neighbors represented by 0 are the ones this region can infect if not contained.
+
         Set<Integer> uninfectedNeighbors = new HashSet<>();
 
-        // Number of walls required to contain all the infected nodes (1s) in this region.
-        // Note that two infected 1s can infect the same 0, so in this case we need two walls to save one 0 from two 1s.
+
         int wallsRequired = 0;
     }
     public int containVirus(int[][] grid) {
@@ -108,9 +100,7 @@ class ContainVirus {
         visited[row][col] = true;
 
         if (grid[row][col] == 0) {
-            // If 0 it is uninfected neighbor, we need a wall.
-            // Remeber we can reach this 0 multiple times from different infected neighbors i.e. 1s,
-            // and this will account for numbers of walls need to be built around this 0.
+
             region.wallsRequired++;
 
             // Add to uninfected list, it will be de-duped as we use Set.

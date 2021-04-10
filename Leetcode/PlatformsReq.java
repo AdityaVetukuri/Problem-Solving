@@ -26,7 +26,7 @@ public class PlatformsReq {
         int max  = 1, platforms = 1;
         while(i < n && j  < n)
         {
-            if(arrivals[i] >= departures[j])
+            if(arrivals[i]  >= departures[j])
             {
                 platforms--;
                 j++;
@@ -40,9 +40,33 @@ public class PlatformsReq {
         }
         return max;
     }
+    public static int addTime(int time, int addition)
+    {
+        int result = time/100;
+
+        result = result * 100;
+
+        int lastTwo = time % 100;
+
+        int extra = lastTwo + addition;
+
+        if(extra > 59)
+        {
+            result = (time/100 + 1) * 100;
+            lastTwo = + extra - 60;
+        }
+        else
+        {
+            lastTwo = lastTwo + addition;
+        }
+
+        result = (result) + lastTwo;
+        return result;
+    }
     public static void main(String[] args) {
-        int arr[] = { 900, 940, 950, 1100, 1500, 1800 };
+        int arr[] = { 340, 1240, 1250, 1600, 1500, 1800 };
         int dep[] = { 910, 1200, 1120, 1130, 1900, 2000 };
-        System.out.println(optimizedMinPlatforms(arr,dep));
+//        System.out.println(optimizedMinPlatforms(arr,dep));
+        System.out.println(addTime(350,20));
     }
 }
