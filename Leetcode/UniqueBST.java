@@ -34,8 +34,7 @@ public class UniqueBST {
     {
        for(int i = 0; i < n; i++)
        {
-           if(visited[i] == 1)
-               co
+
        }
         resultList.add(root);
     }
