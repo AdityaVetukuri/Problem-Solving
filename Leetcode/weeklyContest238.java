@@ -1,16 +1,18 @@
 import java.util.*;
 public class weeklyContest238 {
     public static int maxFrequency(int[] nums, int k) {
-        int res = 1, i = 0, j;
-        long sum = 0;
         Arrays.sort(nums);
-        for (j = 0; j < nums.length; ++j) {
+        int i = 0, j, res = 1;
+        long sum = 0;
+        for(j = 0; j < nums.length; j++)
+        {
             sum += nums[j];
-            while (sum + k < (long)nums[j] * (j - i + 1)) {
+            while(sum + k < (long)nums[j] * (j- i +1))
+            {
                 sum -= nums[i];
-                i += 1;
+                i++;
             }
-            res = Math.max(res, j - i + 1);
+            Math.max(res, j - i + 1);
         }
         return res;
     }
@@ -60,7 +62,7 @@ public class weeklyContest238 {
         return ans;
     }
     public static void main(String[] args) {
-        int arr[] = new int[]{1,4,8,13};
+        int arr[] = new int[]{1,2,4};
         String str = "aeiaaioaaaaeiiiiouuuooaauuaeiu";
   //      System.out.println(longestBeautifulSubstring(str));
         int k = 5;
